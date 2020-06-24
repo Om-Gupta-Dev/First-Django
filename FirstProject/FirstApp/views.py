@@ -1,9 +1,11 @@
 from django.shortcuts import render
+import datetime
 
 # Create your views here.
 
 def index(request):
-    dt = {'name':'Om Gupta'}
+    date = datetime.datetime.now()
+    dt = {'name':'Om Gupta' , 'date':date }
     return render(request , 'FirstApp/index.html' , context = dt)
 
 def home(request):

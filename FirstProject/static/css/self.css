@@ -1,0 +1,6 @@
+{% load static %}
+
+body {
+    background: url(https://25dollar1up.com/home-philadelphia-209731_1920.jpg);
+    /* background-color: red; */
+}
