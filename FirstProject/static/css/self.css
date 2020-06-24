@@ -1,6 +1,10 @@
-{% load static %}
 
 body {
-    background: url(https://25dollar1up.com/home-philadelphia-209731_1920.jpg);
-    /* background-color: red; */
+    background-image: url('../images/City.jpg');
+    background-repeat: no-repeat;
+}
+
+.jumbotron{
+    background-color: rgba(187, 166, 166, 0.001);
+    color: turquoise;
 }
