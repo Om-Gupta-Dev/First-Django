@@ -9,3 +9,14 @@ body {
     background-color: rgba(221, 31, 31, 0.9);
     color: turquoise;
 }
+
+.white{
+    color: white;
+    margin: 0px 0px 0px 50px;
+}
+
+hr{
+    color: rgba(221, 31, 31, 0.9);
+    border: 1px solid red ;
+    margin: 10px 101px 10px 101px;
+}
