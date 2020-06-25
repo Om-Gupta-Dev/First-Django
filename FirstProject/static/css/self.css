@@ -2,9 +2,10 @@
 body {
     background-image: url('../images/City.jpg');
     background-repeat: no-repeat;
+    background:cover;
 }
 
 .jumbotron{
-    background-color: rgba(187, 166, 166, 0.001);
+    background-color: rgba(221, 31, 31, 0.9);
     color: turquoise;
 }
