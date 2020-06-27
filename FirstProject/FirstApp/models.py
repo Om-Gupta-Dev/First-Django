@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Messages(models.Model):
+class Message(models.Model):
     name = models.CharField(max_length=30)
     mail = models.EmailField()
     Message = models.TextField()
