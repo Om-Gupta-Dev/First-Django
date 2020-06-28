@@ -3,6 +3,7 @@ body {
     background-image: url('../images/City.jpg');
     background-repeat: no-repeat;
     background:cover;
+    color: seashell;
 }
 
 .jumbotron{
@@ -19,4 +20,18 @@ hr{
     color: rgba(221, 31, 31, 0.9);
     border: 1px solid red ;
     margin: 10px 101px 10px 101px;
+}
+
+
+td,table {
+    margin: auto;
+    border: 2px solid red;
+    color: turquoise;
+    background-color: yellow;
+    font-size: 25px;
+}
+
+th {
+    background: skyblue;
+    color: springgreen;
 }

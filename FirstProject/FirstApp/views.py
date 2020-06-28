@@ -39,5 +39,5 @@ def contact(request):
     print(data)
     print(type(data))
     
-    return render(request , 'FirstApp/contact.html' , context = data)
+    return render(request , 'FirstApp/contact.html' , context = {'data':data})
     

@@ -1,5 +1,7 @@
 {% extends "FirstApp/base.html" %} 
 
+{% load static %}
+
 {% block title %} Contact {% endblock %}
 
 {% block body %}
@@ -20,21 +22,22 @@
             <button type="submit" class="btn btn-primary mb-2 float-right mt-3">Send</button>
         </form>
     </div>  
-    <div class="container">
+    <div class="container mt-5 py-5">
+    <h1>Some Previous Messages..</h1>
         {% if data %}
             <table>
                 <head>
-                    <tr>date</tr>
-                    <tr>name</tr>
-                    <tr>mail</tr>
-                    <tr>Message</tr>
+                    <th>date</th>
+                    <th>name</th>
+                    <th>mail</th>
+                    <th>Message</th>
                 </head>
                 {% for msg in data %}
                     <tr>
-                        <td>msg.date</td>
-                        <td>msg.name</td>
-                        <td>msg.mail</td>
-                        <td>msg.Message</td>
+                        <td>{{msg.date}}</td>
+                        <td>{{msg.name}}</td>
+                        <td>{{msg.mail}}</td>
+                        <td>{{msg.Message}}</td>
                     </tr>
                 {% endfor %}
             </table>
