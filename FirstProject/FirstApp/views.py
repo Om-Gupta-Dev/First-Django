@@ -34,18 +34,10 @@ def home(request):
 
 def contact(request):
     date = datetime.datetime.now()
-    contactPage = {'head1':'First Heading in contact Page' , 
-                   'para1':'First Paragraph in contact Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 'name':'Om Gupta' , 'date':date , 
-                   
-                   'head2':'Second Heading in contact Page' , 
-                   'para2':'Second Paragraph in contact Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 
-                   
-                   'head3':'Third Heading in contact Page' , 
-                   'para3':'First Paragraph in contact Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!'}
     
     data = Message.objects.all()
     print(data)
     print(type(data))
     
-    return render(request , 'FirstApp/contact.html' , context = contactPage)
+    return render(request , 'FirstApp/contact.html' , context = data)
     

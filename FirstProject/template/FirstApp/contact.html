@@ -19,6 +19,29 @@
             </div>
             <button type="submit" class="btn btn-primary mb-2 float-right mt-3">Send</button>
         </form>
-    </div>    
+    </div>  
+    <div class="container">
+        {% if data %}
+            <table>
+                <head>
+                    <tr>date</tr>
+                    <tr>name</tr>
+                    <tr>mail</tr>
+                    <tr>Message</tr>
+                </head>
+                {% for msg in data %}
+                    <tr>
+                        <td>msg.date</td>
+                        <td>msg.name</td>
+                        <td>msg.mail</td>
+                        <td>msg.Message</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>No Messages Found..</p>
+            
+        {% endif %}
+    </div>  
     
 {% endblock body %}
