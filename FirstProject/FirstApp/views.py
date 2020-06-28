@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import datetime
+from FirstApp.models import Message
 
 # Create your views here.
 
@@ -41,6 +42,10 @@ def contact(request):
                    
                    'head3':'Third Heading in contact Page' , 
                    'para3':'First Paragraph in contact Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!'}
+    
+    data = Message.objects.all()
+    print(data)
+    print(type(data))
     
     return render(request , 'FirstApp/contact.html' , context = contactPage)
     
