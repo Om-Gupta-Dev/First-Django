@@ -2,7 +2,7 @@
 body {
     background-image: url('../images/City.jpg');
     background-repeat: no-repeat;
-    background:cover;
+    background-size:cover;
     color: seashell;
 }
 
@@ -23,15 +23,19 @@ hr{
 }
 
 
-td,table {
-    margin: auto;
-    border: 2px solid red;
+table, th, td {
+    border: 1px solid red;
     color: turquoise;
-    background-color: yellow;
+    background-color: darkslategray;
     font-size: 25px;
 }
 
-th {
-    background: skyblue;
-    color: springgreen;
+/* th {
+    border: 2px solid red;
+    color: orangered;
 }
+
+td {
+    border: 2px solid red;
+    margin: 5px;
+} */
