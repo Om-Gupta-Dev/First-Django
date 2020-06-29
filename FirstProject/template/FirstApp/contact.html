@@ -8,30 +8,30 @@
     <div class="container text-light bold">
         <form>
             <div class="form-group mt-5">
-                <label for="exampleFormControlInput1"><h3>Name</h3></label>
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Your Name Here">
+                <label for="exampleFormControlInput1" class="text-primary"><h3>Name</h3></label>
+                <input type="name" class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlInput1" placeholder="Your Name Here">
             </div> 
             <div class="form-group mt-5">
-                <label for="exampleFormControlInput1"><h3>Email address</h3></label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label for="exampleFormControlInput1" class="text-primary"><h3>Email address</h3></label>
+                <input type="email" class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>        
             <div class="form-group mt-5">
-                <label for="exampleFormControlTextarea1"><h3>Your Message</h3></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="exampleFormControlTextarea1" class="text-primary"><h3>Your Message</h3></label>
+                <textarea class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mb-2 float-right mt-3">Send</button>
         </form>
     </div>  
     <div class="container mt-5 py-5">
-    <h1>Some Previous Messages..</h1>
+    <h1 class="text-warning">Some Previous Messages..</h1>
         {% if data %}
-            <table>
-                <head>
-                    <th>date</th>
-                    <th>name</th>
-                    <th>mail</th>
+            <table class="mt-5">
+                <thead>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Mail</th>
                     <th>Message</th>
-                </head>
+                </thead>
                 {% for msg in data %}
                     <tr>
                         <td>{{msg.date}}</td>
