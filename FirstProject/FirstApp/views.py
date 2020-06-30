@@ -37,7 +37,14 @@ def contact(request):
     forms = form.MessageSend()
     date = datetime.datetime.now()
     
-    data = Message.objects.all()
+    data = Message.objects.all() 
+    
+    if request.method == "POST":
+        forms = form.MessageSend(request.POST)
+        if forms.is_valid():
+            print("FORM VALIDATION SUCCESS.. PRINTING USER DATA..")
+            print(forms.cleaned_data)
+        
     
     return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
     
