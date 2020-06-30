@@ -42,8 +42,11 @@ def contact(request):
     if request.method == "POST":
         forms = form.MessageSend(request.POST)
         if forms.is_valid():
-            print("FORM VALIDATION SUCCESS.. PRINTING USER DATA..")
-            print(forms.cleaned_data)
+            print("\n\tFORM VALIDATION SUCCESS.. PRINTING USER DATA..\n")
+            print("Name : " , forms.cleaned_data['name'] )
+            print("e-Mail : " , forms.cleaned_data['mail'] )
+            print("Message : " , forms.cleaned_data['Message'] )
+            print("Date : " , forms.cleaned_data['date'] )
         
     
     return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
