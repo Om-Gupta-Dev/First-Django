@@ -5,21 +5,11 @@
 {% block title %} Contact {% endblock %}
 
 {% block body %}
-    <div class="container text-light bold">
-        <form>
-            <div class="form-group mt-5">
-                <label for="exampleFormControlInput1" class="text-primary"><h3>Name</h3></label>
-                <input type="name" class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlInput1" placeholder="Your Name Here">
-            </div> 
-            <div class="form-group mt-5">
-                <label for="exampleFormControlInput1" class="text-primary"><h3>Email address</h3></label>
-                <input type="email" class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>        
-            <div class="form-group mt-5">
-                <label for="exampleFormControlTextarea1" class="text-primary"><h3>Your Message</h3></label>
-                <textarea class="form-control text-warning font-weight-bold bg-dark" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mb-2 float-right mt-3">Send</button>
+    <div class="container text-light bold mt-5 my-5">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-warning" value="Send..">
         </form>
     </div>  
     <div class="container mt-5 py-5">

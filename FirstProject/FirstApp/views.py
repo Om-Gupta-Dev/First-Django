@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import datetime
 from FirstApp.models import Message
+from FirstApp import form
 
 # Create your views here.
 
@@ -33,11 +34,10 @@ def home(request):
 
 
 def contact(request):
+    forms = form.MessageSend()
     date = datetime.datetime.now()
     
     data = Message.objects.all()
-    print(data)
-    print(type(data))
     
-    return render(request , 'FirstApp/contact.html' , context = {'data':data})
+    return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
     
