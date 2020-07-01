@@ -13,3 +13,11 @@ class MessageSend(forms.Form):
             raise forms.ValidationError("Name should be Greater than 4")
         else:
             return nme
+        
+    def clean_Message(self):
+        inputMessage = self.cleaned_data['Message']
+        
+        if 200 < len(inputMessage) < 10:
+            raise forms.ValidationError("Message length Should be greater than 10 and less than 200..")
+        else:
+            return inputMessage
