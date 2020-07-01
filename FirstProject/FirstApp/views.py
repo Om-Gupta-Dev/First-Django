@@ -50,3 +50,7 @@ def contact(request):
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
             return render(request , 'FirstApp/thank.html')
+        else:
+            return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
+        
+        
