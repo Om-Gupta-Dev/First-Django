@@ -34,11 +34,13 @@ def home(request):
 
 
 def contact(request):
-    forms = form.MessageSend()
     date = datetime.datetime.now()
-    
     data = Message.objects.all() 
     
+    if request.method == "GET":
+        forms = form.MessageSend()
+        return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
+        
     if request.method == "POST":
         forms = form.MessageSend(request.POST)
         if forms.is_valid():
@@ -47,10 +49,4 @@ def contact(request):
             print("e-Mail : " , forms.cleaned_data['mail'] )
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
-            return render(request , 'FirstApp/thank.html')       
-    
-    return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
-    
-
-def thanks(request):
-    return render(request , 'FirstApp/thank.html')
+            return render(request , 'FirstApp/thank.html')

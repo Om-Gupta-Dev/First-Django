@@ -22,5 +22,4 @@ urlpatterns = [
     path('' , views.index),
     path('contact/' , views.contact),
     path('home/' , views.home),
-    path('thanks/' , views.thanks),
 ]
