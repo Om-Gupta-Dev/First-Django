@@ -52,5 +52,5 @@ def contact(request):
     return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
     
 
-# def thanks(request):
-#     return render(request , 'FirstApp/thank.html')
+def thanks(request):
+    return render(request , 'FirstApp/thank.html')
