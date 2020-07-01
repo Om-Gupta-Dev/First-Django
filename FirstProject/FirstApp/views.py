@@ -47,7 +47,10 @@ def contact(request):
             print("e-Mail : " , forms.cleaned_data['mail'] )
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
-        
+            return render(request , 'FirstApp/thank.html')       
     
     return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
     
+
+# def thanks(request):
+#     return render(request , 'FirstApp/thank.html')
