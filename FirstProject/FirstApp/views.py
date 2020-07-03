@@ -49,6 +49,8 @@ def contact(request):
             print("e-Mail : " , forms.cleaned_data['mail'] )
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
+            
+            forms.save(commit=True)
             return render(request , 'FirstApp/thank.html')
         else:
             return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
