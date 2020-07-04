@@ -39,3 +39,21 @@ th{
 th, td {
     text-align: center;
 }
+
+label{
+    color: chartreuse;
+    font-size: xx-large;
+}
+
+input{
+    size: 20px;
+}
+textarea {
+    background-color: rgba(56, 54, 54, 0.01);
+    color: yellow;
+}
+
+input {
+    background-color: rgba(56, 54, 54, 0.01);
+    color: yellow;
+}
