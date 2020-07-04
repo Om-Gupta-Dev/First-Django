@@ -22,6 +22,16 @@ class MessageSend(forms.ModelForm):
     class Meta:
         model = models.Message
         fields = '__all__'
+        widgets = {
+            'name': forms.TextInput
+                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+            'mail': forms.TextInput
+                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+            'Message': forms.TextInput
+                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+            'date': forms.TextInput
+                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),            
+        }
     
     
     # name = forms.CharField(validators=[only_alpha , validators.MinLengthValidator(5)])

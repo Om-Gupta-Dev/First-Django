@@ -1,9 +1,10 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
 class Message(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30 )
     mail = models.EmailField()
     Message = models.TextField()
     date = models.DateField()

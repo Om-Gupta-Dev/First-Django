@@ -17,9 +17,10 @@ body {
 }
 
 hr{
-    color: rgba(221, 31, 31, 0.9);
-    border: 1px solid red ;
+    color: rgba(221, 31, 31, 1);
+    border: 2px solid red ;
     margin: 10px 101px 10px 101px;
+    border-radius: 25px;
 }
 
 
@@ -43,17 +44,47 @@ th, td {
 label{
     color: chartreuse;
     font-size: xx-large;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-top: 10px;
 }
 
-input{
+.fields{
     size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgba(56, 54, 54, 0.01);
+    border-color: rgba(253, 255, 0, 1);
+    border-radius: 20px;
+    margin-top: 20px;
+    color: yellow;
+    height: 50px;
+    width: 500px;
 }
 textarea {
     background-color: rgba(56, 54, 54, 0.01);
     color: yellow;
+    height: 50px;
+    width: 700px;
+    size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    border-color: rgba(253, 255, 0, 1);
+    border-radius: 20px;
 }
 
-input {
+#enter{
     background-color: rgba(56, 54, 54, 0.01);
     color: yellow;
+    height: 50px;
+    width: 700px;
+    size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    border-color: rgba(253, 255, 0, 1);
+    border-radius: 20px;
+    border-width: 2px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
