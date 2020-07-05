@@ -32,6 +32,9 @@ class MessageSend(forms.ModelForm):
             'date': forms.TextInput
                            (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),            
         }
+        validators = {
+            'mail':[only_gmail]
+        }
     
     
     # name = forms.CharField(validators=[only_alpha , validators.MinLengthValidator(5)])

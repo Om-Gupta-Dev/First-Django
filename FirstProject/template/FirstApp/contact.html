@@ -1,4 +1,5 @@
 {% extends "FirstApp/base.html" %} 
+{% load custFilters %} <!-- IMPORTANT : loading custom filters not in django documentation -->
 
 {% load static %}
 
@@ -25,10 +26,10 @@
                 </thead>
                 {% for msg in data %}
                     <tr>
-                        <td>{{ msg.date }}</td>
+                        <td>{{ msg.date|timesince }}</td>
                         <td>{{ msg.name }}</td>
                         <td>{{ msg.mail }}</td>
-                        <td>{{ msg.Message }}</td>
+                        <td>{{ msg.Message|first20 }}</td>
                     </tr>
                 {% endfor %}
             </table>
