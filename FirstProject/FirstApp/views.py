@@ -23,7 +23,7 @@ def index(request):
                  
                  'count':count}
     response = render(request , 'FirstApp/index.html' , context = indexPage)
-    response.set_cookie('count' , count )
+    response.set_cookie('count' , count , max_age = 60)
     return response
 
 def home(request):
@@ -41,7 +41,7 @@ def home(request):
                 
                 'count':count}
     response = render(request , 'FirstApp/home.html' , context = homePage)
-    response.set_cookie('count' , count )
+    response.set_cookie('count' , count , max_age = 60)  #age limit for cookie
     return response
 
 
@@ -54,7 +54,7 @@ def contact(request):
         count = int(request.COOKIES.get('count' , 0 ))
         count += 1
         response = render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms , 'count':count})
-        response.set_cookie('count' , count )
+        response.set_cookie('count' , count , max_age = 60)
         return response
         
     if request.method == "POST":
