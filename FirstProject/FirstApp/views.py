@@ -10,7 +10,7 @@ dt = {'name':'Om Gupta' , 'date':date }
 
 def index(request):
     date = datetime.datetime.now()
-    count = int(request.COOKIES.get('count' , 0 ))
+    count = int(request.session.get('sessioncount' , 0 ))
     count += 1
     indexPage = {'head1':'First Heading in index Page' , 
                  'para1':'First Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 'name':'Om Gupta' , 'date':date , 
@@ -23,7 +23,7 @@ def index(request):
                  
                  'count':count}
     response = render(request , 'FirstApp/index.html' , context = indexPage)
-    response.set_cookie('count' , count , max_age = 60)
+    request.session['sessioncount'] = count
     return response
 
 def home(request):
