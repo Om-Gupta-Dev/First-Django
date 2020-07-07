@@ -24,13 +24,13 @@ class MessageSend(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput
-                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+                           (attrs={'class':'btn btn-outline-warning fields col-md-10 col-sm-10 col-lg-10 col-xs-10', 'id':'enter'}),
             'mail': forms.TextInput
-                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+                           (attrs={'class':'btn btn-outline-warning fields col-md-10 col-sm-10 col-lg-10 col-xs-10', 'id':'enter'}),
             'Message': forms.TextInput
-                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),
+                           (attrs={'class':'btn btn-outline-warning fields col-md-10 col-sm-10 col-lg-10 col-xs-10', 'id':'enter'}),
             'date': forms.TextInput
-                           (attrs={'class':'btn btn-outline-warning fields', 'id':'enter'}),            
+                           (attrs={'class':'btn btn-outline-warning fields col-md-10 col-sm-10 col-lg-10 col-xs-10', 'id':'enter'}),            
         }
         validators = {
             'mail':[only_gmail]

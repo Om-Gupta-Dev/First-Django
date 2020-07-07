@@ -1,0 +1,13 @@
+{% extends "sessioncart/base.html" %} 
+
+{% block title %} Add Your Items in Cart.. {% endblock title %}
+
+{% block body %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn-outline-warning fields col-md-6" value="Add to Cart.">
+        </form>
+    </div>      
+{% endblock body %}

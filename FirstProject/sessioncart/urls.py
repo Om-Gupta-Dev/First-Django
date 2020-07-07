@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 
-from FirstApp import urls as firstappUrl
-from sessioncart import urls as sessionUrl
+from sessioncart import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('' , include(firstappUrl)),
-    path('cart/' , include(sessionUrl)),
+    path('' , views.index ),
+    path('yourcart/' , views.cart ),
 ]

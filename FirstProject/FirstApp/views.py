@@ -9,12 +9,12 @@ date = datetime.datetime.now()
 dt = {'name':'Om Gupta' , 'date':date }
 
 def index(request):
-    date = datetime.datetime.now()
-    count = int(request.session.get('sessioncount' , 0 ))
-    count += 1
-    request.session['sessioncount'] = count
-    request.session.set_expiry(60)  #expiry time in seconds..
-    exp = request.session.get_expiry_date()
+    # date = datetime.datetime.now()
+    # count = int(request.session.get('sessioncount' , 0 ))
+    # count += 1
+    # request.session['sessioncount'] = count
+    # request.session.set_expiry(60)  #expiry time in seconds..
+    # exp = request.session.get_expiry_date()
     indexPage = {'head1':'First Heading in index Page' , 
                  'para1':'First Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 'name':'Om Gupta' , 'date':date , 
                  
@@ -22,9 +22,7 @@ def index(request):
                  'para2':'Second Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 
                  
                  'head3':'Third Heading in index Page' , 
-                 'para3':'Third Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 
-                 
-                 'count':count , 'exp':exp }
+                 'para3':'Third Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!'}
     response = render(request , 'FirstApp/index.html' , context = indexPage)
     return response
 
@@ -68,18 +66,18 @@ def contact(request):
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
             # saving data as session
-            request.session['name'] = forms.cleaned_data['name']
-            request.session['mail'] = forms.cleaned_data['mail']
-            request.session['Message'] = forms.cleaned_data['Message']
-            request.session['date'] = str(forms.cleaned_data['date']) 
+                # request.session['name'] = forms.cleaned_data['name']
+                # request.session['mail'] = forms.cleaned_data['mail']
+                # request.session['Message'] = forms.cleaned_data['Message']
+                # request.session['date'] = str(forms.cleaned_data['date']) 
             # retrieving Session data to show in thank.html
-            sName = request.session['name']
-            sMail = request.session['mail']
-            sMessage = request.session['Message']
-            sDate = request.session['date']
+                # sName = request.session['name']
+                # sMail = request.session['mail']
+                # sMessage = request.session['Message']
+                # sDate = request.session['date']
             
             forms.save(commit=True)
-            return render(request , 'FirstApp/thank.html' , {'name':sName , 'mail':sMail , 'message': sMessage , 'date':sDate })
+            return render(request , 'FirstApp/thank.html')
         else:
             return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
         
