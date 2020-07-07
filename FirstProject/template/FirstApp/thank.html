@@ -3,10 +3,20 @@
 {% block title %} Thanks For Registration..{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container text-warning">
         <h1>Thanks For Messaging our team will contact you soon..</h1>
         <hr>
         <h2>Have a Nice Day..</h2>
+        <hr>
+        <h1>Please Check your Information..</h1>
+        <h1>
+            <ul>
+                <li>Name : {{ name }}</li>
+                <li>Mail : {{ mail }}</li>
+                <li>Message : {{ message }}</li>
+                <li>Date : {{ date }}</li>
+            </ul>
+        </h1>
     </div>
     
 {% endblock body %}
