@@ -18,9 +18,11 @@ from django.urls import path , include
 
 from FirstApp import urls as firstappUrl
 from sessioncart import urls as sessionUrl
+from django.contrib.auth import urls as authUrl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , include(firstappUrl)),
     path('cart/' , include(sessionUrl)),
+    path('accounts/' , include(authUrl)),
 ]

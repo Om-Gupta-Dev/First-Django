@@ -74,7 +74,7 @@ textarea {
     border-radius: 20px;
 }
 
-#enter{
+#enter,input{
     background-color: rgba(56, 54, 54, 0.01);
     color: yellow;
     height: 50px;
