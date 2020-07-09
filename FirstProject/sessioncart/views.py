@@ -18,3 +18,7 @@ def index(request):
 def cart(request):
     return render(request , 'sessioncart/cart.html')
 
+@login_required
+def checkout(request):
+    return render(request , 'sessioncart/checkout.html')
+

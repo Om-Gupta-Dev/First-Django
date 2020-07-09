@@ -1,0 +1,27 @@
+{% extends "sessioncart/base.html" %} 
+
+{% block title %} Your Cart Items.. {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center">Your Cart Items...</h1><hr>
+        {% if request.session.items %}
+            <table>
+                <thead>
+                    <th>Item Name </th>
+                    <th>Quantity </th>
+                </thead>        
+                {% for key,value in request.session.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>      
+                {% endfor %} 
+            </table>      
+            {% else %}
+            <h1 class=" text-center mt-auto">Your Cart is empty..</h1>
+            {% endif %}
+
+            <button class="btn rounded btn-danger mx-auto">Confirm..</button>
+        </div>
+{% endblock body %}

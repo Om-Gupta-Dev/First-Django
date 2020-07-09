@@ -21,4 +21,5 @@ from sessioncart import views
 urlpatterns = [
     path('' , views.index ),
     path('yourcart/' , views.cart ),
+    path('checkout/' , views.checkout ),
 ]
