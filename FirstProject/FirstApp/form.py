@@ -1,21 +1,22 @@
 from django import forms
 from django.core import validators
 from FirstApp import models
+from django.contrib.auth.models import User
 
 def only_gmail(value):
     print("validating mail in def")
     if value[-10:] != "@gmail.com":
         raise forms.ValidationError("mail should be Only Gmail..")
         
-def only_alpha(value):
-    print("validating al in def")
-    if value.isalpha() == 'False':
-        raise forms.ValidationError("Name should Only Contain Alphabets..")
+# def only_alpha(value):
+#     print("validating al in def")
+#     if value.isalpha() == 'False':
+#         raise forms.ValidationError("Name should Only Contain Alphabets..")
         
-def bot_handler(value):
-    print(value)
-    if len(value) > 0:
-        raise forms.ValidationError("Thanks Bot")
+# def bot_handler(value):
+#     print(value)
+#     if len(value) > 0:
+#         raise forms.ValidationError("Thanks Bot")
     
     
 class MessageSend(forms.ModelForm):
@@ -46,3 +47,7 @@ class MessageSend(forms.ModelForm):
     # bot_handler = forms.CharField(required = False , widget = forms.HiddenInput , validators = [bot_handler])
         
     
+class signup(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username' , 'password' , 'email' , 'first_name' , 'last_name']

@@ -1,0 +1,17 @@
+{% extends "FirstApp/base.html" %} 
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block body %}
+    <div class="container text-light bold mt-5 my-5">
+        <h1>Signup to Avail the Facilities.. </h1><hr>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn-outline-warning fields col-md-6" value="Login..">
+        </form>
+    </div> 
+    
+{% endblock body %}

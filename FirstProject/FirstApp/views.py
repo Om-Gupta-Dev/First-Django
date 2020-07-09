@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import datetime
 from FirstApp.models import Message
-from FirstApp import form
+from FirstApp import form as firstForm
 
 # Create your views here.
 
@@ -50,7 +50,7 @@ def contact(request):
     data = Message.objects.all() 
     
     if request.method == "GET":
-        forms = form.MessageSend()
+        forms = firstForm.MessageSend()
         count = int(request.COOKIES.get('count' , 0 ))
         count += 1
         response = render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms , 'count':count})
@@ -58,7 +58,7 @@ def contact(request):
         return response
         
     if request.method == "POST":
-        forms = form.MessageSend(request.POST)
+        forms = firstForm.MessageSend(request.POST)
         if forms.is_valid():
             print("\n\tFORM VALIDATION SUCCESS.. PRINTING USER DATA..\n")
             print("Name : " , forms.cleaned_data['name'] )
@@ -82,3 +82,6 @@ def contact(request):
             return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
         
         
+def signup(request):
+    form = firstForm.signup()
+    return render(request , 'registration/signup.html' , {'form':form})

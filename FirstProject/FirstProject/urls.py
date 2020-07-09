@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 
-from FirstApp import urls as firstappUrl
-from sessioncart import urls as sessionUrl
-from django.contrib.auth import urls as authUrl
+from FirstApp import urls as firstappUrls
+from sessioncart import urls as sessionUrls
+from django.contrib.auth import urls as authUrls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , include(firstappUrl)),
-    path('cart/' , include(sessionUrl)),
-    path('accounts/' , include(authUrl)),
+    path('' , include(firstappUrls)),
+    path('cart/' , include(sessionUrls)),
+    path('accounts/' , include(authUrls)),
 ]
