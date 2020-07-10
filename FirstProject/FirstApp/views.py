@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
@@ -83,5 +84,16 @@ def contact(request):
         
         
 def signup(request):
-    form = firstForm.signup()
-    return render(request , 'registration/signup.html' , {'form':form})
+    if request.method == "GET":
+        form = firstForm.signup()
+        return render(request , 'registration/signup.html' , {'form':form})
+    
+    if request.method == "POST":
+        form = firstForm.signup(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.set_password(user.password)
+            user.save()
+            return HttpResponseRedirect('/accounts/login')
+        else:
+            return render(request , 'registration/signup.html' , {'form':form})
