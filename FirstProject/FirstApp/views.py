@@ -90,7 +90,11 @@ def signup(request):
     
     if request.method == "POST":
         form = firstForm.signup(request.POST)
+        # if form.is_valid():          #applicable for only default password hashers 
+        #     form.save()
+        
         if form.is_valid():
+            # form.save()
             user = form.save()
             user.set_password(user.password)
             user.save()
