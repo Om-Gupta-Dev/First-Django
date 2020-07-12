@@ -1,6 +1,7 @@
-from django.shortcuts import render , redirect
-from CRUD.models import Employee
+from django.shortcuts import redirect, render
+
 from CRUD.form import EmpForm
+from CRUD.models import Employee
 
 # Create your views here.
 
@@ -23,3 +24,9 @@ def new(request):
             return redirect('/crud')
         else:
             return render(request , 'CRUD/add.html' , {'form':form})
+        
+
+def Delete_view(request,id):
+    emp = Employee.objects.get(id = id)
+    emp.delete()
+    returnredirect('/crud')

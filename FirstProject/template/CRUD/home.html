@@ -7,10 +7,11 @@
         {% if employees %}
             <table>
                 <thead>
-                    <th>eNo</th>
-                    <th>eName</th>
-                    <th>eSalary</th>
-                    <th>eAdddress</th>
+                    <th> eNo </th>
+                    <th> eName </th>
+                    <th> eSalary </th>
+                    <th> eAdddress </th>
+                    <th> Actions </th>
                 </thead>
                 {% for employe in employees %}
                     <tr>
@@ -18,6 +19,7 @@
                         <td> {{ employe.eName }} </td>
                         <td> {{ employe.eSalary }} </td>
                         <td> {{ employe.eAdddress }} </td>
+                        <td><a href="#"> update </a> <a href="/crud/delete/{{ employe.id }}"> Delete </a></td>
                     </tr>
                 {% endfor %}
             </table>            
