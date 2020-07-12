@@ -1,0 +1,24 @@
+{% extends "CRUD/base.html" %}
+
+{% block title %} CRUD Operations.. {% endblock %}
+
+{% block body %}
+    {% if employees %}
+        <table>
+            <thead>
+                <th>eNo</th>
+                <th>eName</th>
+                <th>eSalary</th>
+                <th>eAdddress</th>
+            </thead>
+            {% for employe in employees %}
+                <tr>
+                    <td> {{ employe.eNo }} </td>
+                    <td> {{ employe.eName }} </td>
+                    <td> {{ employe.eSalary }} </td>
+                    <td> {{ employe.eAdddress }} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

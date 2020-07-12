@@ -16,15 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 
-from FirstApp import urls as firstappUrls
-from sessioncart import urls as sessionUrls
-from CRUD import urls as CrudUrls
-from django.contrib.auth import urls as authUrls
+from CRUD import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('' , include(firstappUrls)),
-    path('cart/' , include(sessionUrls)),
-    path('accounts/' , include(authUrls)),
-    path('crud/' , include(CrudUrls)),
+    path('' , views.home),
 ]
