@@ -18,8 +18,8 @@
                         <td> {{ employe.eNo }} </td>
                         <td> {{ employe.eName }} </td>
                         <td> {{ employe.eSalary }} </td>
-                        <td> {{ employe.eAdddress }} </td>
-                        <td><a href="#"> update </a> <a href="/crud/delete/{{ employe.id }}"> Delete </a></td>
+                        <td> {{ employe.eAddress }} </td>
+                        <td><a href="/crud/update/{{ employe.id }}"> update </a> <a href="/crud/delete/{{ employe.id }}"> Delete </a></td>
                     </tr>
                 {% endfor %}
             </table>            

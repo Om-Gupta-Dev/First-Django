@@ -29,4 +29,15 @@ def new(request):
 def Delete_view(request,id):
     emp = Employee.objects.get(id = id)
     emp.delete()
-    returnredirect('/crud')
+    return redirect('/crud')
+
+
+def Update_view(request,id):
+    emp = Employee.objects.get(id = id)
+    if request.method == "POST":
+        form = EmpForm(request.POST , instance=emp)       # Creating a form instance and connecting it with emp form to update existing record
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('/crud')
+    if request.method == "GET":
+        return render(request , 'CRUD/update.html' , {'employee':emp})

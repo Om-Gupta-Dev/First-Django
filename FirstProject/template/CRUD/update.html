@@ -1,0 +1,17 @@
+{% extends "CRUD/base.html" %}
+
+{% block title %} CRUD Update Operation.. {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            Employee Number : <input type="number" name="eNo" value="{{ employee.eNo }}"> <br>
+            Employee Name : <input type="text" name="eName" value="{{ employee.eName }}"> <br>
+            Employee Salary : <input type="number" name="eSalary" value="{{ employee.eSalary }}"> <br>
+            Employee Address : <input type="text" name="eAddress" value="{{ employee.eAddress }}"> <br>
+
+            <button class="btn btn-outline-success" type="submit">Update Employee.</button>
+        </form>
+    </div>
+{% endblock %}
