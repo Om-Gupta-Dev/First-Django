@@ -3,22 +3,26 @@
 {% block title %} CRUD Operations.. {% endblock %}
 
 {% block body %}
-    {% if employees %}
-        <table>
-            <thead>
-                <th>eNo</th>
-                <th>eName</th>
-                <th>eSalary</th>
-                <th>eAdddress</th>
-            </thead>
-            {% for employe in employees %}
-                <tr>
-                    <td> {{ employe.eNo }} </td>
-                    <td> {{ employe.eName }} </td>
-                    <td> {{ employe.eSalary }} </td>
-                    <td> {{ employe.eAdddress }} </td>
-                </tr>
-            {% endfor %}
-        </table>
-    {% endif %}
+    <div class="container">
+        {% if employees %}
+            <table>
+                <thead>
+                    <th>eNo</th>
+                    <th>eName</th>
+                    <th>eSalary</th>
+                    <th>eAdddress</th>
+                </thead>
+                {% for employe in employees %}
+                    <tr>
+                        <td> {{ employe.eNo }} </td>
+                        <td> {{ employe.eName }} </td>
+                        <td> {{ employe.eSalary }} </td>
+                        <td> {{ employe.eAdddress }} </td>
+                    </tr>
+                {% endfor %}
+            </table>            
+        {% endif %}
+        <hr>
+        <a href="/crud/add" class="btn btn-lg btn-warning"> Add New Employee..</a>
+    </div>
 {% endblock %}

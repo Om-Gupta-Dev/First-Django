@@ -1,10 +1,13 @@
 import os
 from faker import Faker
+import random
 os.environ.setdefault('DJANGO_SETTINGS_MODULE' , 'FirstProject.settings')
 import django
 django.setup()
 
 from FirstApp.models import *
+
+from CRUD.models import *
 
 fake = Faker()
 
@@ -20,4 +23,19 @@ def populate(n):
                                 date = fdate)
     
     
-populate(11)
+# populate(11)
+
+# For CRUD APP 
+
+def populateEmployee(n):
+    for i in range(n):
+        feNo = int(fake.numerify())
+        feName = fake.name()
+        feSalary = random.randint(100000,200000)
+        feAdddress = fake.address()
+        Employee.objects.get_or_create(eNo = feNo , 
+                                eName = feName , 
+                                eSalary = feSalary , 
+                                eAdddress = feAdddress)
+    
+populateEmployee(10)

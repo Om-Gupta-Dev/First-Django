@@ -20,4 +20,5 @@ from CRUD import views
 
 urlpatterns = [
     path('' , views.home),
+    path('add' , views.new),
 ]

@@ -1,0 +1,13 @@
+{% extends "CRUD/base.html" %}
+
+{% block title %} CRUD Add Operation.. {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button class="btn btn-outline-success" type="submit">Add Employee.</button>
+        </form>
+    </div>
+{% endblock %}
