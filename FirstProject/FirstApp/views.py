@@ -4,28 +4,35 @@ import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
+from django.views.generic import View
+from django.http import HttpResponse
+
 # Create your views here.
 
 date = datetime.datetime.now()
 dt = {'name':'Om Gupta' , 'date':date }
 
-def index(request):
-    # date = datetime.datetime.now()
-    # count = int(request.session.get('sessioncount' , 0 ))
-    # count += 1
-    # request.session['sessioncount'] = count
-    # request.session.set_expiry(60)  #expiry time in seconds..
-    # exp = request.session.get_expiry_date()
-    indexPage = {'head1':'First Heading in index Page' , 
-                 'para1':'First Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 'name':'Om Gupta' , 'date':date , 
+# def index(request):
+#     # date = datetime.datetime.now()
+#     # count = int(request.session.get('sessioncount' , 0 ))
+#     # count += 1
+#     # request.session['sessioncount'] = count
+#     # request.session.set_expiry(60)  #expiry time in seconds..
+#     # exp = request.session.get_expiry_date()
+#     indexPage = {'head1':'First Heading in index Page' , 
+#                  'para1':'First Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 'name':'Om Gupta' , 'date':date , 
                  
-                 'head2':'Second Heading in index Page' , 
-                 'para2':'Second Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 
+#                  'head2':'Second Heading in index Page' , 
+#                  'para2':'Second Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!' , 
                  
-                 'head3':'Third Heading in index Page' , 
-                 'para3':'Third Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!'}
-    response = render(request , 'FirstApp/index.html' , context = indexPage)
-    return response
+#                  'head3':'Third Heading in index Page' , 
+#                  'para3':'Third Paragraph in index Page.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae consectetur ab eligendi nemo voluptates inventore provident minus sunt in numquam!'}
+#     response = render(request , 'FirstApp/index.html' , context = indexPage)
+#     return response
+
+class index(View):
+    def get(self , request):
+        return HttpResponse('This is First Class Based View ')
 
 def home(request):
     date = datetime.datetime.now()

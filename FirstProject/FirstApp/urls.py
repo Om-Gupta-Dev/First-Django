@@ -19,7 +19,7 @@ from django.urls import path , include
 from FirstApp import views
 
 urlpatterns = [
-    path('' , views.index),
+    path('' , views.index.as_view()),
     path('contact/' , views.contact),
     path('home/' , views.home),
     path('signup/' , views.signup ),
