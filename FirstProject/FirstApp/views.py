@@ -4,7 +4,7 @@ import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
-from django.views.generic import View
+from django.views.generic import TemplateView
 from django.http import HttpResponse
 
 # Create your views here.
@@ -30,9 +30,15 @@ dt = {'name':'Om Gupta' , 'date':date }
 #     response = render(request , 'FirstApp/index.html' , context = indexPage)
 #     return response
 
-class index(View):
-    def get(self , request):
-        return HttpResponse('This is First Class Based View ')
+class index(TemplateView):
+    template_name = 'FirstApp/index.html'
+    # def get(self , request):
+    #     return HttpResponse('This is First Class Based View ') 
+    # Passing Context Data
+    def get_context_data(self , **kwargs):
+        context = super().get_context_data()
+        context['head1'] = 'First Class Based Template Page'
+        return context
 
 def home(request):
     date = datetime.datetime.now()
