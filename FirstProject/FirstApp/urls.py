@@ -20,7 +20,7 @@ from FirstApp import views
 
 urlpatterns = [
     path('' , views.index.as_view()),
-    path('contact/' , views.contact),
+    path('contact/' , views.contact.as_view()),
     path('home/' , views.home),
     path('signup/' , views.signup ),
 ]

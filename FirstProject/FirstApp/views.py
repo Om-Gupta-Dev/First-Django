@@ -1,11 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+
 import datetime
+
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
+from django.views.generic import View
 from django.views.generic import TemplateView
+from django.views.generic import ListView
+from django.views.generic import DetailView
+
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -58,20 +64,41 @@ def home(request):
     response.set_cookie('count' , count , max_age = 60)  #age limit for cookie
     return response
 
+# Function Based Views FBV More Powerful
 
-def contact(request):
-    date = datetime.datetime.now()
-    data = Message.objects.all() 
+# def contact(request):
+#     date = datetime.datetime.now()
+#     data = Message.objects.all() 
     
-    if request.method == "GET":
+#     if request.method == "GET":
+#         forms = firstForm.MessageSend()
+#         count = int(request.COOKIES.get('count' , 0 ))
+#         count += 1
+#         response = render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms , 'count':count})
+#         response.set_cookie('count' , count , max_age = 60)
+#         return response
+
+# Class Based Views FBV Less Powerful Than FBV's
+
+class contact(View):
+    # model = Message
+    # Default template name : "message_List.html"
+    # Default context name : "object_list"
+    
+    def get_context_data(self, **kwargs):
+        data = Message.objects.all() 
+        context = super().get_context_data(**kwargs)
+        context["data"] = data
+        print(context)
+        return context
+    
+    def get(self, request, *args, **kwargs):
+        data = Message.objects.all() 
         forms = firstForm.MessageSend()
-        count = int(request.COOKIES.get('count' , 0 ))
-        count += 1
-        response = render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms , 'count':count})
-        response.set_cookie('count' , count , max_age = 60)
-        return response
-        
-    if request.method == "POST":
+        return render(request , 'FirstApp/message_List.html' , context = {'data':data , 'form':forms})
+    
+    def post(self , request , *args , **kwargs):
+        data = Message.objects.all() 
         forms = firstForm.MessageSend(request.POST)
         if forms.is_valid():
             print("\n\tFORM VALIDATION SUCCESS.. PRINTING USER DATA..\n")
@@ -80,20 +107,44 @@ def contact(request):
             print("Message : " , forms.cleaned_data['Message'] )
             print("Date : " , forms.cleaned_data['date'] )
             # saving data as session
-                # request.session['name'] = forms.cleaned_data['name']
-                # request.session['mail'] = forms.cleaned_data['mail']
-                # request.session['Message'] = forms.cleaned_data['Message']
-                # request.session['date'] = str(forms.cleaned_data['date']) 
+            request.session['name'] = forms.cleaned_data['name']
+            request.session['mail'] = forms.cleaned_data['mail']
+            request.session['Message'] = forms.cleaned_data['Message']
+            request.session['date'] = str(forms.cleaned_data['date']) 
             # retrieving Session data to show in thank.html
-                # sName = request.session['name']
-                # sMail = request.session['mail']
-                # sMessage = request.session['Message']
-                # sDate = request.session['date']
+            sName = request.session['name']
+            sMail = request.session['mail']
+            sMessage = request.session['Message']
+            sDate = request.session['date']
             
             forms.save(commit=True)
-            return render(request , 'FirstApp/thank.html')
+            return render(request , 'FirstApp/thank.html' , context = {'name':sName,'mail':sMail,'message':sMessage,'date':sDate})
         else:
             return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
+        
+    # if request.method == "POST":
+    #     forms = firstForm.MessageSend(request.POST)
+    #     if forms.is_valid():
+    #         print("\n\tFORM VALIDATION SUCCESS.. PRINTING USER DATA..\n")
+    #         print("Name : " , forms.cleaned_data['name'] )
+    #         print("e-Mail : " , forms.cleaned_data['mail'] )
+    #         print("Message : " , forms.cleaned_data['Message'] )
+    #         print("Date : " , forms.cleaned_data['date'] )
+    #         # saving data as session
+    #             # request.session['name'] = forms.cleaned_data['name']
+    #             # request.session['mail'] = forms.cleaned_data['mail']
+    #             # request.session['Message'] = forms.cleaned_data['Message']
+    #             # request.session['date'] = str(forms.cleaned_data['date']) 
+    #         # retrieving Session data to show in thank.html
+    #             # sName = request.session['name']
+    #             # sMail = request.session['mail']
+    #             # sMessage = request.session['Message']
+    #             # sDate = request.session['date']
+            
+    #         forms.save(commit=True)
+    #         return render(request , 'FirstApp/thank.html')
+    #     else:
+    #         return render(request , 'FirstApp/contact.html' , context = {'data':data , 'form':forms})
         
         
 def signup(request):
