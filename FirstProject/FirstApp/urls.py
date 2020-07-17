@@ -23,4 +23,6 @@ urlpatterns = [
     path('contact/' , views.contact.as_view()),
     path('home/' , views.home),
     path('signup/' , views.signup ),
+    path('books/' , views.AllMessages.as_view() ),
+    path('books/<int:pk>' , views.datail.as_view() ),
 ]

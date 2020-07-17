@@ -165,3 +165,15 @@ def signup(request):
             return HttpResponseRedirect('/accounts/login')
         else:
             return render(request , 'registration/signup.html' , {'form':form})
+      
+class AllMessages(ListView):
+    model = Message
+    # Default template name : "message_List.html"
+    # Default context name : "object_list"
+    template_name = "FirstApp/allmessages.html"
+    # context_object_name = ""               #to set own context parameter name
+      
+class datail(DetailView):
+    model = Message
+    # Default template name : "message_detail.html"
+    # Default context name : "message"

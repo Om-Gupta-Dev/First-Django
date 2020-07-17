@@ -1,0 +1,26 @@
+{% extends "FirstApp/base.html" %} 
+
+{% load static %}
+
+{% block title %} Message Detail {% endblock title %}
+
+{% block body %}
+    <div class="container mt-5 py-5">
+    <h1 class="text-warning">{{ message.name }}'s Message..</h1>
+        <table class="mt-5">
+            <thead>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Message</th>
+            </thead>
+                <tr>
+                    <td>{{ message.date|timesince }}</td>
+                    <td>{{ message.name }}</td>
+                    <td>{{ message.mail }}</td>
+                    <td>{{ message.Message }}</td>
+                </tr>
+        </table>
+    </div>  
+    
+{% endblock body %}

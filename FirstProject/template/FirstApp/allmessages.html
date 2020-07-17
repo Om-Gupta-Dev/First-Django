@@ -1,0 +1,23 @@
+{% extends "FirstApp/base.html" %} 
+
+{% load static %}
+
+{% block title %} All Messages {% endblock title %}
+
+{% block body %}
+    <div class="container text-light bold mt-5 my-5">
+        <h1>Messages ..</h1>
+        <hr>
+    </div>  
+    <div class="container mt-5 py-5 text-center">
+    <h1 class="text-warning">All Messages..</h1>
+        {% if object_list %}
+            {% for msg in object_list %}
+                <h2 class="text-light"><a href="/books/{{ msg.id }}">{{ msg.name }}'s Message</a></h2>
+            {% endfor %}
+        {% else %}
+            <p>No Messages Found..</p>
+        {% endif %}
+    </div>  
+    
+{% endblock body %}
