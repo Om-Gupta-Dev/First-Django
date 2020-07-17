@@ -5,13 +5,9 @@ import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
-from django.views.generic import View
-from django.views.generic import TemplateView
-from django.views.generic import ListView
-from django.views.generic import DetailView
+from django.views.generic import View , TemplateView , ListView , DetailView , CreateView
 
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse , HttpResponseRedirect
 
 # Create your views here.
 
@@ -177,3 +173,7 @@ class datail(DetailView):
     model = Message
     # Default template name : "message_detail.html"
     # Default context name : "message"
+    
+class SendMessage(CreateView):
+    model = Message
+    fields = ['name' , 'mail' , 'Message' , 'date']
