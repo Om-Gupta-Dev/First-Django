@@ -19,7 +19,7 @@ from django.urls import path , include
 from FirstApp import views
 
 urlpatterns = [
-    path('' , views.index.as_view()),
+    path('' , views.index.as_view() , name='home'),
     path('contact/' , views.contact.as_view()),
     path('home/' , views.home),
     path('signup/' , views.signup ),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('message/<int:pk>' , views.datail.as_view() , name = 'detail'),
     path('message/' , views.SendMessage.as_view() ),
     path('update/<int:pk>' , views.UpdateMessage.as_view() ),
+    path('delete/<int:pk>' , views.DeleteMessage.as_view() ),
 ]

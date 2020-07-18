@@ -1,0 +1,20 @@
+{% extends "FirstApp/base.html" %} 
+
+{% load static %}
+
+{% block title %} Delete Message {% endblock title %}
+
+{% block body %}
+    <div class="container mt-5 py-5">
+    <h1 class="text-warning">Are You Sure To Delete {{ message.name }}'s Message..</h1>
+        <hr>
+        <form method="post">
+            {{ form }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Delete Message </button>
+        </form>
+        <a href="/messages" class="btn btn-lg btn-danger mt-5 mr-5 ml-5">All Messages..</a>
+        <a href="/update/{{message.id}}" class="btn btn-lg btn-danger mt-5 ml-5">Edit Message..</a>
+    </div>  
+    
+{% endblock body %}

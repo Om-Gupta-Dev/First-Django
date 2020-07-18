@@ -5,9 +5,11 @@ import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
-from django.views.generic import View , TemplateView , ListView , DetailView , CreateView , UpdateView
+from django.views.generic import View , TemplateView , ListView , DetailView , CreateView , UpdateView , DeleteView
 
-from django.http import HttpResponse , HttpResponseRedirect
+from django.http import HttpResponse , HttpResponseRedirect 
+
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -184,3 +186,7 @@ class UpdateMessage(UpdateView):
     model = Message
     fields = ['name' , 'mail' , 'Message' , 'date'] 
     # template_name = ".html"
+
+class DeleteMessage(DeleteView):
+    model = Message
+    success_url = reverse_lazy('home')              # Wait Until Deletion Completed
