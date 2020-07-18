@@ -13,7 +13,7 @@
     <h1 class="text-warning">All Messages..</h1>
         {% if object_list %}
             {% for msg in object_list %}
-                <h2 class="text-light"><a href="/books/{{ msg.id }}">{{ msg.name }}'s Message</a></h2>
+                <a href="/message/{{ msg.id }}" class="btn btn-lg btn-danger mt-5 mr-5 font-weight-bolder"><h2 class="text-light"></h2>{{ msg.name }}'s Message</h2></a>
             {% endfor %}
         {% else %}
             <p>No Messages Found..</p>

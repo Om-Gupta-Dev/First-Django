@@ -5,7 +5,7 @@ import datetime
 from FirstApp.models import Message
 from FirstApp import form as firstForm
 
-from django.views.generic import View , TemplateView , ListView , DetailView , CreateView
+from django.views.generic import View , TemplateView , ListView , DetailView , CreateView , UpdateView
 
 from django.http import HttpResponse , HttpResponseRedirect
 
@@ -176,4 +176,11 @@ class datail(DetailView):
     
 class SendMessage(CreateView):
     model = Message
-    fields = ['name' , 'mail' , 'Message' , 'date']
+    fields = ['name' , 'mail' , 'Message' , 'date'] 
+    # Default template name : "message_form.html"
+    # Default Form name : "form"
+    
+class UpdateMessage(UpdateView):
+    model = Message
+    fields = ['name' , 'mail' , 'Message' , 'date'] 
+    # template_name = ".html"

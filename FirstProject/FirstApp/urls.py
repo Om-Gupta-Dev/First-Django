@@ -26,4 +26,5 @@ urlpatterns = [
     path('messages/' , views.AllMessages.as_view() ),
     path('message/<int:pk>' , views.datail.as_view() , name = 'detail'),
     path('message/' , views.SendMessage.as_view() ),
+    path('update/<int:pk>' , views.UpdateMessage.as_view() ),
 ]
