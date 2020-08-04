@@ -51,3 +51,23 @@ class signup(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name' , 'last_name' , 'username' , 'password' , 'email' ]
+        
+        
+class UploadForm(forms.ModelForm):
+    images = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    class Meta():
+        model = models.upload
+        fields = "__all__"
+        labels = {
+            'name':'test Name'
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'btn btn-lg mr-5'}), 
+            'email': forms.TextInput(attrs={'class':'btn btn-lg mr-5'}),
+        }
+    def clean(self):
+        print(self.cleaned_data['name'])    
+        print(self.cleaned_data['email'])    
+        img = self.cleaned_data['images']
+        print(img)    
+        print(img.size )    

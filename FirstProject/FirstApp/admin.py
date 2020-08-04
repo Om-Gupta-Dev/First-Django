@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from FirstApp.models import Message
+from FirstApp.models import Message, upload
 
 class MessageAdmin(admin.ModelAdmin):
     list_display = ['id','date' , 'name','mail']
@@ -8,3 +8,4 @@ class MessageAdmin(admin.ModelAdmin):
 # Register your models here.
 
 admin.site.register(Message , MessageAdmin)
+admin.site.register(upload )

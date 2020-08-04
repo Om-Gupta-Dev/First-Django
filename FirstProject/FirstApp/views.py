@@ -190,3 +190,25 @@ class UpdateMessage(UpdateView):
 class DeleteMessage(DeleteView):
     model = Message
     success_url = reverse_lazy('home')              # Wait Until Deletion Completed
+
+from FirstApp.models import upload as uploadm
+from django.core.exceptions import ValidationError
+from django import forms
+
+def upload(request):
+    form = firstForm.UploadForm()
+    if request.method == "POST":
+        form = firstForm.UploadForm(request.POST, request.FILES)    # if request.FILES not passed it will raise error
+        print("`````````````````````````````````````````In  POST  ")
+        if form.is_valid():
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~IN Form ")
+            imgs = request.FILES['images']
+            namei = form.cleaned_data['name']
+            emaili = form.cleaned_data['email']
+            for file in request.FILES.getlist('images'):
+                print("---------------------------------",file.size )
+                # if file.size >1000000:
+                #     raise forms.ValidationError("The maximum file size that can be uploaded is 1MB")
+            frm = uploadm(name=namei, email=emaili , images=imgs )
+            frm.save()
+    return render(request, 'FirstApp/upload.html', {'form':form})

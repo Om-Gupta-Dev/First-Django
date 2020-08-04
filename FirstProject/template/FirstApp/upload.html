@@ -1,0 +1,11 @@
+{% extends 'FirstApp/base.html' %}
+
+{% block title %} Upload Files {% endblock %}
+
+{% block body %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="ml-5 btn btn-danger rounded">Send </button>
+    </form>
+{% endblock body %}

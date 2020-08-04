@@ -16,3 +16,8 @@ class Message(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail' , kwargs={'pk':self.pk })
+    
+class upload(models.Model):
+    name = models.CharField(max_length=50, default="null")
+    email = models.EmailField(default="null")
+    images = models.ImageField(default="null")
